@@ -3,69 +3,109 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        html, body{
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-        }
+      *{ box-sizing: border-box; }
+
+body{
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+  margin: 0;
+}
+
+.container{
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    padding-top: 50px;
+  text-align: center;
+}
+
+.titulo-principal{
+  margin: 0 0 8px;
+  color: rgba(177,0,78,0.85);
+  font-style: italic;
+  font-size: 28px;
+}
+
+.subtitulo-principal{
+  margin: 0 0 14px;
+  color: rgba(177,0,78,0.70);
+  font-style: italic;
+  font-size: 16px;
+}
+
+.icone-coracao{
+  font-size: 28px;
+  margin: 15px 0 25px;
+}
 
 
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
-    }
-    
-        .container {
-            text-align: center;
-        }    
-        
-        .menu{
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
+.menu{
+  display: flex;
+  flex-direction: column;   
+  align-items: center;
+  gap: 18px;
+}
 
-        .card {
-            text-decoration: none;
-            color:black;
-            font-size: 22px;
-            display: flex;
-            flex-direction: colunm;
-            align-items: center;
-            transition: transform 0.2s;
-            min-width: 140px;
-        }
 
-        .card:horver{
-            transform: scale(1.1);
-        }
+.card{
+  width: 90%;
 
-</style>
+  background: rgba(255,255,255,0.65);
+  padding: 25px;
+  border-radius: 20px;
 
-</head>
-<body>
+  text-decoration: none;
+  color: #b1004e;
+
+  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+  transition: transform .2s, box-shadow .2s;
+  display: block;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.20);
+}
+
+.icon{
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.card h2{
+  margin: 5px 0;
+  font-size: 22px;
+}
+
+.card p{
+  margin: 0;
+  font-size: 15px;
+  opacity: .75;
+}
+ </style>
+ </head>
 
     <div class="container">
    
-    <h1>FIZ PRA VC AMOR❤️❤️</h1>
+    <h1 class="titulo-principal" >✨ Para Você, Meu Amor ✨</h1>
+    <p class="subtitulo-principal">Cada momento ao seu lado é incrivel</p>
+    <div class="icone-coracao">💗💜💗</div>
     
     <div class="menu">
-        <a href="NossasFotos.html" class="card">
-            
-        <span>Nossas Fotos</span>
-            </a>
+       <a href = "NossasFotos.html" class = "card">
+        <div class="icon" >📷< </div>
+        <h2>Nossas Fotos</h2>
+        <p>Momentos especias</p>
+       </a>
+        
+        <a href="NossosVideos.html" class= "card">
+            <div class"icon" >🎥< </div>
+            <h2>Nossos Videos</h2>
+            <p>Memorias em movimento</p>
 
-            <a href="NossosVideos.html" class="card">
-                
-            <span>Nossos Videos</span>
-                </a>
+        </a>
 
     </div>
         <p>💖💖</p>
