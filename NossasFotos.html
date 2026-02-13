@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" contet="width=device-width, initial-scale=1.0">
+<style>
+    html, body{
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+
+    }
+
+    body{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+    }
+
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .galeria{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+        #foto{
+            max-width: 70vw;
+            max-height: 80vh;
+            border-radius: 15px;
+        }
+
+        .nav{
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #ffcccc;
+        }
+
+        @media (max-whidth:600px){
+            .galeria{
+                flex-direction: column;
+
+            }
+            #foto{
+                max-width: 90vw;
+                max-height: 65vh;
+            }
+        }
+
+         .nav:hover{
+            background-color: #ff99cc;
+         }
+
+
+        img {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        img{
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .nav-btn:hover {
+            background-color: #ff99cc;
+        }
+
+        .nav-btn {
+            padding: 12px 16px;
+            font-size: 18px;
+            border-radius: 50px;
+            background-color: #ffcccc;
+            border: none;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #4d0606;
+            border: none;
+        }
+        button:hover {
+            background-color: #4d050b;
+        }
+
+        .galeria{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        #foto {
+            max-width: 70vw;
+            max-height: 80vh;
+            border-radius: 15px;
+            object-fit: contain;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+
+<div class="galeria">
+    <button class="nav-btn" onclick="fotoAnterior()"></button>
+    
+</div>
+
+<img id="foto" src="fotos/foto1.jpg">
+
+<button class="nav-btn" onclick="proximaFoto()"></button>
+
+    <script>
+var fotos = ["foto1.jpg" , "foto2.jpg", "foto3.jpg","foto4.jpg","foto5.jpg" ,"foto6.jpg", "foto7.jpg"];
+var indice = 0;
+
+function proximaFoto(){
+    indice = indice + 1;
+    
+    if (indice >= fotos.length){
+        indice = 0;
+    }
+
+    document.getElementById("foto").src = "fotos/" + fotos [indice];
+
+}
+
+function fotoAnterior(){
+    indice--;
+    if(indice < 0){
+        indice = fotos.length - 1;
+    }
+    document.getElementById("foto").src = "fotos/" + fotos[indice];
+}
+
+</script>
+
+
+</body>
