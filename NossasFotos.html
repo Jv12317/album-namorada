@@ -17,15 +17,16 @@
     } 
 
     .voltar{
-        position: fixed;
-        top: 16px;
-        left: 16px;
-        text-decoration: none;
-        background: rgba(255, 255, 255,.75);
-        padding: 10px 14px;
-        border-radius: 999px;
-        color: #b1004e;
-        font-weight: 700;
+        position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #b1004e;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 16px; 
+    font-weight: bold;
     } 
 
     h1{
@@ -50,21 +51,25 @@
     }
 
     .seta{
-        width: 50px;
-        height: 50px;
-        border-radius: 50px;
-        border:none;
-        background: rgba(255, 255, 255,.75);
-        color: #b1004e;
-        font-size: 24px;
-        cursor:pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 25px rgba 0,0,0,.1;
-        font-size: 24px;
-        flex-shrink: 0;
+        background: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    color: #b1004e;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 10; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
     }
+
+    .seta:active {
+    transform: scale(0.9); 
+}
 
     .seta:hover{
         background: rgba(255, 255, 255,.95);
@@ -145,42 +150,38 @@ var legendas = [
 
 ];
 
-var atual = 0;
+var indice = 0;
 
-function atualizarTudo(){
-    const imagemElement = document.getElementById("foto");
-    const legendaElement = document.getElementById("legenda");
-    const contadorElement = document.getElementById("contador");
-}
-
-setTimeout(function(){
-    imagemElement.src = "FOTOS" + fotos[indice];
-    legendaElement.innerText = legendas [indice];
-    contadorElement.innerText = (indice + 1) + " de " + "fotos.length";
-
-imagemElement.style.opacity = 1;
-}, 300); 
-
-
-
-function proximaFoto(){
-    indice = indice + 1;
+function atualizarTela() {
+    // 1. Muda a imagem
+    document.getElementById("foto").src = fotos[indice];
     
-    if (indice >= fotos.length){
-        indice = 0;
-    }
-
-    atualizarTudo();
-
+    // 2. Muda a legenda (agora ela vai seguir a lista!)
+    document.getElementById("legenda").innerText = legendas[indice];
+    
+    // 3. Muda o contador (ex: 2 de 7)
+    document.getElementById("contador").innerText = (indice + 1) + " de " + fotos.length;
 }
 
-function fotoAnterior(){
+function proximaFoto() {
+    indice++;
+    if (indice >= fotos.length) {
+        indice = 0; // Volta para o início
+    }
+    atualizarTela();
+}
+
+function fotoAnterior() {
     indice--;
-    if(indice < 0){
-        indice = fotos.length - 1;
+    if (indice < 0) {
+        indice = fotos.length - 1; // Vai para a última
     }
-    atualizarTudo();
+    atualizarTela();
 }
+
+// Inicializa a tela com a primeira legenda e contador corretos
+window.onload = atualizarTela;
+    atualizarTudo();
 
 </script>
 
